@@ -42,6 +42,7 @@ makeCacheMatrix <- function(x = matrix()) {
 
 
 
+
 cacheSolve <- function(x=matrix(), ...) {
 
     m <- x$getmatrix()
@@ -63,3 +64,14 @@ cacheSolve <- function(x=matrix(), ...) {
     m
 
 }
+
+## To compute the inversion of the matrix, you must
+## use matrix multiplication (%*%) on the original matrix
+## times the matrix returned by cacheSolve
+## For example:
+## > mat <- matrix(10*10, nrow=10, ncol=10)
+## > solvedMatrix <- makeCacheMatrix(mat)
+## > matInverse <- mat %*% solvedMatrix
+
+## Warning: This code only works for a square matrix!
+
